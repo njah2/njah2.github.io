@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Nicky Hama | CS @ USC</title>
+		<style>
+			body { margin: 0; }
+            #text-overlay {
+                font-size: 1000%;
+                color: white; 
+                font-family: Circular, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            }
+            #text-below {
+                
+                font-size: 500%;
+                color: rgb(212, 180, 55);
+            }
+
+            #container  {
+                position:fixed;
+                top:50%;
+                left:50%;
+                transform:translate(-50%, -50%);
+                width: 70%;
+                height:40%;
+                
+                box-sizing:border-box;
+                text-align:center;
+                background-color: transparent;
+            }
+
+            button  {
+                
+                background-color: #FFFFFF;
+                border: 1px solid #222222;
+                border-radius: 8px;
+                box-sizing: border-box;
+                color: #222222;
+                cursor: pointer;
+                display: inline-block;
+                font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+                font-size: 40px;
+                font-weight: 600;
+                line-height: 20px;
+                margin: 0;
+                outline: none;
+                padding: 13px 23px;
+                position: relative;
+                text-align: center;
+                text-decoration: none;
+                touch-action: manipulation;
+                transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+                user-select: none;
+                -webkit-user-select: none;
+                width: auto;
+
+                margin-top: 3%;
+                width: 15%;
+                height: 15%
+                
+            }
+
+            #tabbar {
+                position: fixed;
+                top: 10%;
+                background-color: transparent;
+                width: 40%;
+                left: 50%;
+                right: 50%;
+                transform:translate(-50%, -50%);
+                text-align: center;
+            }
+
+
+		</style>
+	</head>
+
+	<body>
+
+        <div id = "tabbar">
+            <button  onClick="window.open('https://www.linkedin.com/in/nickyhama/', '_blank')"><img src="linkedin.svg" alt="Linkedin"></button>
+            <button onClick="window.open('https://github.com/njhama', '_blank')"><img src="github.svg" alt="Github"></button>
+            <button onClick = "changeBackground()"> <img src="sun.svg" alt="Lights"></button>
+            <button onClick="window.open('https://docs.google.com/document/d/16yGwhUcIGBZ5qJDbTOs8q9smbJ98wiZi72QVYSsFvjw/edit?usp=sharing', '_blank')"><img src="book.svg" alt="Resume"></button>
+            <button onClick="window.open('mailto:njhama@usc.com', '_blank')"><img src="send.svg" alt="Email"></button>
+        </div>
+        <div id = "container">
+            <div id="text-overlay">Nicky Hama</div>
+            <div id="text-below">CS & Business @ USC</div>
+            
+        </div>
+
+
+    
+            
+    
+
+		<script src="js/three.js"></script>
+		<script>
+			const scene = new THREE.Scene();
+            scene.background = new THREE.Color( 0x020000 );
+			const camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+			const renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );
+
+            
+
+
+			for (let i = 0; i < 75; i++) {
+                const geometry = new THREE.BoxGeometry( Math.random() + 0.1, Math.random() + 0.1, Math.random() + 0.1 );
+                const color = new THREE.Color( Math.random(), Math.random(), Math.random() );
+                const material = new THREE.MeshBasicMaterial( { color: color } );
+                const cube = new THREE.Mesh( geometry, material );
+                cube.position.set( Math.random() * 20 - 10, Math.random() * 20 - 10 + 30, Math.random() * 20 - 10 -10);
+                scene.add( cube );
+            }
+
+			camera.position.z = 5;
+
+			function onWindowResize() {
+				windowHalfX = window.innerWidth / 2;
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+				renderer.setSize( window.innerWidth, window.innerHeight );
+			}
+
+         
+			function animate() {
+				requestAnimationFrame( animate );
+
+                if (white)  {
+                    move_amt = 0.15;
+                    watch_amt = 20;
+                    reset_amt = -20;
+                }
+                else    {
+                     move_amt = -0.1;
+                     watch_amt = -20;
+                     reset_amt = 20;
+                }
+
+            
+				scene.children.forEach(cube => {
+					cube.rotation.x += 0.05 * Math.random();
+					cube.rotation.y += 0.05 * Math.random();
+
+                    
+
+
+
+
+
+                    cube.position.y += move_amt;
+                    
+
+                    if (!white) {if (cube.position.y < watch_amt) {cube.position.y = reset_amt;}}
+                    else {if (cube.position.y > watch_amt) {cube.position.y = reset_amt;}}
+				});
+
+				renderer.render( scene, camera );
+			};
+
+
+            let white = false;
+            function changeBackground() {
+
+
+                if (white) {
+                    scene.background =  new THREE.Color(  0x020000 );
+                    document.getElementById("text-overlay").style.color = "white";
+                    white = false;
+                }
+                else    {
+                    scene.background =  new THREE.Color( '#FFFFFF' );
+
+                    //change 
+                    document.getElementById("text-overlay").style.color = "black";
+                    white = true;
+                }
+
+
+                
+            }
+
+			window.addEventListener( 'resize', onWindowResize );
+
+
+            //if (!white)  {animate();}
+			animate();
+		</script>
+	</body>
+</html>
