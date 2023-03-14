@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicky Hama</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+
+        body {
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 200px;
+        }
+
+        
+        .mywidth {
+            width: 1100px;
+            margin: 0 auto;
+        }
+
+        #nav {
+            height: 50px;
+            background-color: rgb(255, 255, 255);
+            position: fixed;
+            z-index: 9;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .mynav {
+            width: 1100px;
+            margin: 0 auto;
+        }
+
+        .mynav p {
+            float: left;
+            font-family: 'inter';
+            font-weight: bold;
+            color: rgb(0, 0, 0);
+            margin-top: 12.5px;
+        }
+        
+        .mynav ul {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+            padding-top: 15px;
+            
+        }
+
+        .mynav li {
+            float: right;
+            color:  rgb(0, 0, 0);
+            
+            width: 130px;
+            text-align: center;
+            
+        }
+
+        .mynav a {
+            display: block;
+            text-decoration: none;
+            color: #000000;
+            font-weight: bold;
+        }
+
+        .mymain {
+            
+            height: 500px;
+            background-color: azure;
+            color: azure;
+        }
+
+        .mymain p {
+            padding-top: 30px;
+            color: white;
+            height: 50px;
+            
+        }
+
+        
+        #content {
+           
+            padding-top: 100px;
+            padding-left: 100px;
+        }
+
+        #content h1 + h1 {
+            margin-top: -50px;;
+        }
+
+        #content h1 {
+            font-weight: bolder;
+        }
+        #content h2 {
+            margin-top: -30px;
+            color: rgb(193, 77, 225);
+        }
+        
+        #content-left {
+            margin-left: -80px;
+            width: 500px;
+            float: left;
+            text-align: center;
+            font-family: 'inter';
+        }
+       
+
+        #main {
+            
+            height: 1600px;
+            position: relative;
+            z-index: 1;
+            
+        }
+
+        #buttonbar {
+            margin-top:30px;
+        }
+
+        #buttonbar button {
+            width: 50px;
+            height: 50px;
+            border-radius: 40px;
+            margin-left: 5px;
+            margin-right: 5px;
+            border: none;
+        }
+
+        .btn-primary {
+            margin-top: 10px;
+            width: 250px;
+            height: 65px;
+            font-size: 30px;
+            font-weight: bolder;
+            --bs-btn-font-weight: 2600;
+            --bs-btn-bg: rgb(23, 23, 226);
+            --bs-btn-border-radius: 2rem;
+            --bs-btn-border-color:  rgb(23, 23, 226);
+        }
+
+        .btn-outline-primary {
+            --bs-btn-bg: rgb(236, 234, 234);
+        }
+
+        #about {
+            background-color: rgba(255, 255, 255, 0.01);;
+            margin-top: 1000px;
+            font-family: 'inter';
+            font-size: 70px;
+            font-weight: bolder;
+            color: white;
+            text-align: center;
+        }
+        #about h2 {
+            text-align: left;
+        }
+        #about h3 {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        #about button {
+            margin-top: 50px;
+
+        }
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            }
+
+        .red {
+            color:red;
+            font-weight: 150px;
+        }
+
+        .pink {
+            color: rgb(205, 50, 176);
+            font-weight: 150px;
+        }
+
+        .purple {
+            color: #8454de   ;
+            font-weight: 150px;
+        }
+
+        #footer {
+            z-index: 999;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id = "nav">
+        <div class = "mywidth">
+            <span class = "mynav">
+                <p>NJAH</p>
+                <ul>
+                    <li><a href="">PROJECTS</a></li>
+                    <li><a href="">ABOUT</a></li>
+                    <li><a href="">HOME</a></li>
+                </ul>
+            </span>
+            
+        </div>
+    </div>
+
+    <div id = "main">
+        <div class = "mywidth">
+            <span class = "mymain">
+                <div id = "content">
+                    <div id = "content-left">
+                        <h1>nicky</h1>
+                        <h1>hama</h1>
+                        <h2 id = "byline">software engineer & developer</h2>
+                        <button type="button" class="btn btn-primary" id = "light_btn" onclick="changeBackground()">lights on</button>
+                        <!--BUTTONS HERE-->
+                        <div id = "buttonbar">
+                            <button type="button" class="btn btn-outline-primary">
+                                <img src="img/github.svg" alt="github">
+                            </button>
+                            <button type="button" class="btn btn-outline-primary">
+                                <img src="img/linkedin.svg" alt="linkedin">
+                            </button>
+                            <button type="button" class="btn btn-outline-primary">
+                                <img src="img/mail.svg" alt="email">
+                            </button>
+                            <button type="button" class="btn btn-outline-primary">
+                                <img src="img/file-text.svg" alt="resume">
+                            </button>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </span>
+
+            <!--ABOUT SECTION-->
+            <div id = "about">
+                <h2>about</h2>
+
+                <h3>greetings, my name is <span class = "pink">Nicky Hama</span> from Palos Verdes, CA and I am a sophomore at the <span class = "red">University of Southern California </span> studying <span class = "purple">Computer Science & Business Administration </span>with a specialization in Applied Analytics</h3>
+                <button type="button" class="btn btn-primary" onclick="alert('thanks :)')">very cool!</button>
+            </div>
+            
+        </div>
+    </div>
+
+   
+
+    <div id = "footer">
+        <div class = "mywidth">
+            <p>
+                C NICKY HAMA
+            </p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="js/three.js"></script>
+		<script>
+			const scene = new THREE.Scene();
+            scene.background = new THREE.Color( 0x020000 );
+			const camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+			const renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );
+
+            
+			for (let i = 0; i < 50; i++) {
+                const geometry = new THREE.BoxGeometry( Math.random() + 0.1, Math.random() + 0.1, Math.random() + 0.1 );
+                const color = new THREE.Color( Math.random(), Math.random(), Math.random() );
+                const material = new THREE.MeshBasicMaterial( { color: color } );
+                const cube = new THREE.Mesh( geometry, material );
+                cube.position.set( Math.random() * 20 - 10, Math.random() * 20 - 10 + 30, Math.random() * 20 - 10 -10);
+                scene.add( cube );
+            }
+
+			camera.position.z = 5;
+
+			function onWindowResize() {
+				windowHalfX = window.innerWidth / 2;
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+				renderer.setSize( window.innerWidth, window.innerHeight );
+			}
+
+         
+			function animate() {
+				requestAnimationFrame( animate );
+
+                if (white)  {
+                    move_amt = 0.15;
+                    watch_amt = 20;
+                    reset_amt = -20;
+                }
+                else    {
+                     move_amt = -0.1;
+                     watch_amt = -20;
+                     reset_amt = 20;
+                }
+
+            
+				scene.children.forEach(cube => {
+					cube.rotation.x += 0.05 * Math.random();
+					cube.rotation.y += 0.05 * Math.random();
+                    cube.position.y += move_amt;
+                    if (!white) {if (cube.position.y < watch_amt) {cube.position.y = reset_amt;}}
+                    else {if (cube.position.y > watch_amt) {cube.position.y = reset_amt;}}
+				});
+
+				renderer.render( scene, camera );
+			};
+
+
+            let white = false;
+            function changeBackground() {
+                if (white) {
+                    scene.background =  new THREE.Color(  0x020000 );
+                    var h1List = document.getElementsByTagName("h1");
+                    for (var i = 0; i < h1List.length; i++) {
+                        h1List[i].style.color = "white";
+                    }
+
+                    var h2List = document.getElementsByTagName("h2");
+                    for (var i = 0; i < h2List.length; i++) {
+                        h2List[i].style.color = "white";
+                    }
+
+                    var h3List = document.getElementsByTagName("h3");
+                    for (var i = 0; i < h3List.length; i++) {
+                        h3List[i].style.color = "white";
+                    }
+                    document.getElementById('byline').style.color = 'rgb(193, 77, 225)';
+                    white = false;
+
+
+                    document.getElementById("light_btn").innerHTML = "lights on"
+                }
+                else    {
+                    scene.background =  new THREE.Color( '#FFFFFF' );
+
+                    //change colors
+                    var h1List = document.getElementsByTagName("h1");
+                    for (var i = 0; i < h1List.length; i++) {
+                        h1List[i].style.color = "black";
+                    }
+
+                    var h2List = document.getElementsByTagName("h2");
+                    for (var i = 0; i < h2List.length; i++) {
+                        h2List[i].style.color = "black";
+                    }
+
+                    var h3List = document.getElementsByTagName("h3");
+                    for (var i = 0; i < h3List.length; i++) {
+                        h3List[i].style.color = "black";
+                    }
+                    document.getElementById('byline').style.color = 'rgb(193, 77, 225)';
+                    document.getElementById("light_btn").innerHTML = "lights off";
+                    //document.getElementById('nav').style.backgroundColor = 'black'
+                    //document.getElementById('nav').style.color = 'white'
+                    //change 
+                    //document.getElementById("text-overlay").style.color = "black";
+                    white = true;
+                }
+
+
+                
+            }
+
+			window.addEventListener( 'resize', onWindowResize );
+
+
+            //if (!white)  {animate();}
+			animate();
+		</script>
+</body>
+</html>
